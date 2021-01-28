@@ -1,0 +1,12 @@
+{
+  "name": "com.test.upm-lfs-in-path-bug",
+  "displayName": "UPM bug with LFS in Path param",
+  "version": "0.0.1",
+  "unity": "2019.1",
+  "description": "",
+  "keywords": [
+    "Bug"
+  ],
+  "category": "Bug",
+  "dependencies": {}
+}
