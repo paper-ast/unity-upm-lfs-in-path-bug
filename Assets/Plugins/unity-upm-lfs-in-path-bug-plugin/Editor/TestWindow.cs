@@ -6,7 +6,7 @@ using UnityEngine;
 public class TestWindow : EditorWindow
 {
     private static string packageName = "com.test.upm-lfs-in-path-bug";
-    private static string resourcesDir = "Resources";
+    private static string resourcesDir = "PackageResources";
     private static string resourcesPath;
     private static string textureName = "unity-logo.png";
     private static Texture2D texture2D;
@@ -50,32 +50,7 @@ public class TestWindow : EditorWindow
                 var text = File.ReadAllText(fullPath);
                 GUILayout.Label(text, EditorStyles.label); 
             }
-            else
-            {
-                GUILayout.Label(fullPath);
-            }
-            
         }
-        
     }
-    
-    
-    private void InitInternal()
-    {
-        string[] dirs = Directory.GetDirectories(Environment.CurrentDirectory, resourcesDir, SearchOption.AllDirectories);
-        resourcesPath = dirs[0].Replace(Environment.CurrentDirectory + Path.DirectorySeparatorChar, "") + Path.DirectorySeparatorChar;
-
-        if (resourcesPath.Contains(packageName))
-        {
-            resourcesPath = Path.Combine("Packages", packageName, resourcesDir) + Path.DirectorySeparatorChar;
-        }
-
-        Debug.Log(resourcesPath);
-        
-        texture2D = AssetDatabase.LoadAssetAtPath(resourcesPath + textureName, typeof(Texture2D)) as Texture2D;
-        
-        
-    }
-    
     
 }
